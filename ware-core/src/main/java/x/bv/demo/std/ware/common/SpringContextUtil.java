@@ -1,4 +1,4 @@
-package x.bv.demo.std.common;
+package x.bv.demo.std.ware.common;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
