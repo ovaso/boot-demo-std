@@ -8,8 +8,8 @@ import x.bv.demo.std.ware.core.web.WebConfiguration;
 
 @AutoConfiguration
 @Import({
-    WebConfiguration.class
+	WebConfiguration.class
 })
 public class WareConfiguration {
-    private final Logger log = LoggerFactory.getLogger(WareConfiguration.class);
+	private final Logger log = LoggerFactory.getLogger(WareConfiguration.class);
 }

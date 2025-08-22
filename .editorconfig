@@ -1,0 +1,266 @@
+root = true
+
+[*]
+charset = utf-8
+indent_size = 4
+tab_width = 4
+indent_style = tab
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+ij_continuation_indent_size = 4
+ij_formatter_tags_enabled = true # 格式化器开关标签
+# IDEA 相关设置
+ij_formatter_off_tag = @formatter:off
+ij_formatter_on_tag = @formatter:on
+ij_any_keep_first_column_comment = false
+ij_any_keep_line_breaks = true
+ij_any_wrap_long_lines = false
+ij_any_line_comment_add_space = true
+ij_any_block_comment_add_space = true
+ij_any_line_comment_at_first_column = false
+ij_any_block_comment_at_first_column = false
+ij_any_line_comment_add_space_on_reformat = true
+ij_any_keep_indents_on_empty_lines = true
+max_line_length = 100
+
+[.editorconfig]
+ij_editorconfig_space_after_colon = false
+ij_editorconfig_space_after_comma = true
+ij_editorconfig_space_before_colon = false
+ij_editorconfig_space_before_comma = false
+ij_editorconfig_align_group_field_declarations = false
+ij_editorconfig_spaces_around_assignment_operators = true
+
+[*.java]
+ij_java_continuation_indent_size = 4
+ij_java_enum_constants_wrap = split_into_lines
+ij_java_space_inside_one_line_enum_braces = true
+ij_java_doc_do_not_wrap_if_one_line = true
+ij_java_class_count_to_use_import_on_demand = 999
+ij_java_names_count_to_use_import_on_demand = 999
+ij_java_doc_enable_formatting = true
+ij_java_doc_add_p_tag_on_empty_lines = false
+ij_java_doc_align_param_comments = true
+ij_java_blank_lines_before_method_body = 1
+# ij_java_method_call_chain_wrap = split_into_lines
+# ij_java_wrap_first_method_in_call_chain = false
+# ij_java_align_multiline_chained_methods = true
+ij_java_builder_methods = unset
+ij_java_keep_builder_methods_indents = false
+
+
+# # 空格
+# ## 括号之前
+# ij_java_space_before_if_parentheses = true # if判断左括号加空格
+# ij_java_space_before_for_parentheses = true # for循环条件左括号加空格
+# ij_java_space_before_try_parentheses = true # try-with-resource资源左括号加空格
+# ij_java_space_before_while_parentheses = true # while循环条件左括号加空格
+# ij_java_space_before_catch_parentheses = true # catch异常左括号加空格
+# ij_java_space_before_switch_parentheses = true # switch入参左括号加空格
+# ij_java_space_before_method_parentheses = false # 方法定义左括号不加空格
+# ij_java_space_before_method_call_parentheses = false # 方法调用左括号不加空格
+# ij_java_space_before_synchronized_parentheses = true # synchronized上锁变量左括号加空格
+# ij_java_space_before_annotation_parameter_list = false # annotation形参列表左括号加空格
+# ## 运算符周围
+# ij_java_spaces_around_assignment_operators = true # 赋值运算符周围加空格
+# ij_java_spaces_around_lambda_arrow = true # lambda 箭头周围加空格
+# ij_java_spaces_around_logical_operators = true # 逻辑运算符周围加空格
+# ij_java_spaces_around_shift_operators = true # 移位运算符周围加空格
+# ij_java_spaces_around_unary_operator = false # 一元运算符周围加空格
+# ij_java_spaces_around_bitwise_operators = true # 按位运算符周围加空格, 按位与或非
+# ij_java_spaces_around_method_ref_dbl_colon = false # 方法引用双冒号周围不加空格
+# ij_java_spaces_around_additive_operators = true # 加法运算符周围加空格
+# ij_java_spaces_around_multiplicative_operators = true # 乘法周围加空格
+# ij_java_spaces_around_equality_operators = true # 相等运算符周围加空格
+# ij_java_spaces_around_relational_operators = true # 关系运算符周围加空格
+# ## 左大括号
+# ij_java_space_before_class_left_brace = true
+# ij_java_space_before_method_left_brace = true
+# ij_java_space_before_if_left_brace = true
+# ij_java_space_before_else_left_brace = true
+# ij_java_space_before_for_left_brace = true
+# ij_java_space_before_while_left_brace = true
+# ij_java_space_before_do_left_brace = true
+# ij_java_space_before_switch_left_brace = true
+# ij_java_space_before_try_left_brace = true
+# ij_java_space_before_catch_left_brace = true
+# ij_java_space_before_finally_left_brace = true
+# ij_java_space_before_synchronized_left_brace = true
+# ij_java_space_before_array_initializer_left_brace = true
+# ij_java_space_before_annotation_array_initializer_left_brace = true
+# ## 关键字之前
+# ij_java_space_before_else_keyword = true
+# ij_java_space_before_while_keyword = true
+# ij_java_space_before_catch_keyword = true
+# ij_java_space_before_finally_keyword = true
+# ## 内部
+# ## 三元运算符中
+# ij_java_space_before_quest = true
+# ij_java_space_after_quest = true
+# ij_java_space_before_colon = true
+# ij_java_space_after_colon = true
+# ## 类型实参(泛型尖括号)
+# ij_java_space_after_comma_in_type_arguments = true
+# ij_java_space_after_closing_angle_bracket_in_type_argument = true
+# ij_java_space_before_opening_angle_bracket_in_type_parameter = true
+# ## 其它
+# ij_java_space_before_comma = false
+# ij_java_space_after_comma = true
+# ij_java_space_before_for_semicolon = false
+# ij_java_space_after_for_semicolon = true
+# ij_java_space_after_type_cast = true
+# ij_java_space_before_colon_in_foreach = false
+# ij_java_spaces_around_annotation_eq = true
+# ij_java_space_inside_one_line_enum_braces = false
+# ## 类型形参
+# ij_java_spaces_within_angle_brackets = false
+# ij_java_spaces_around_type_bounds_in_type_parameters = unset
+# # 换行和大括号
+# ## 重新格式化时保持
+# # ij_java_keep_line_breaks = false # 换行符
+# ij_java_keep_first_column_comment = false
+# ij_java_keep_control_statement_in_one_line = true
+# ij_java_keep_multiple_expressions_in_one_line = false
+# ij_java_keep_simple_blocks_in_one_line = true
+# ij_java_keep_simple_methods_in_one_line = false
+# ij_java_keep_simple_lambdas_in_one_line = true
+# ij_java_keep_simple_classes_in_one_line = true
+# ### 少一个确保不超过右边距
+# ## 大括号位置
+# ij_java_class_brace_style = end_of_line
+# ij_java_method_brace_style = end_of_line
+# ij_java_lambda_brace_style = end_of_line
+# ij_java_block_brace_style = end_of_line
+# ## extends implements permits
+# ij_java_extends_list_wrap = off
+# ij_java_align_multiline_extends_list = true
+# ij_java_extends_keyword_wrap = normal # 过长换行
+# ## throws 列表
+# ij_java_throws_list_wrap = off
+# ij_java_align_throws_keyword = true
+# ij_java_align_multiline_throws_list = true
+# ij_java_throws_keyword_wrap = off
+# ## 方法声明形参
+# ij_java_method_parameters_wrap = split_into_lines
+# ij_java_align_multiline_parameters = true
+# ij_java_method_parameters_new_line_after_left_paren = false
+# ij_java_method_parameters_right_paren_on_new_line = false
+# ij_java_blank_lines_before_method_body = unset
+# ## 方法调用实参
+# ij_java_call_parameters_wrap = on_every_item
+# ij_java_align_multiline_parameters_in_calls = true
+# ij_java_call_parameters_new_line_after_left_paren = unset
+# ij_java_call_parameters_right_paren_on_new_line = unset
+# ij_java_prefer_parameters_wrap = true
+# ## 方法圆括号
+# ij_java_align_multiline_method_parentheses = true
+# ## 链式方法调用
+# ij_java_method_call_chain_wrap = split_into_lines
+# ij_java_wrap_first_method_in_call_chain = false
+# ij_java_align_multiline_chained_methods = true
+# ij_java_builder_methods = unset
+# ij_java_keep_builder_methods_indents = false
+# ## if语句
+# ij_java_if_brace_force = if_multiline
+# ij_java_else_on_new_line = false
+# ij_java_special_else_if_treatment = true
+# ## for语句
+# ij_java_align_multiline_for = true
+# ij_java_for_statement_new_line_after_left_paren = unset
+# ij_java_for_statement_right_paren_on_new_line = unset
+# ij_java_for_brace_force = if_multiline
+# ## while 语句
+# ij_java_while_brace_force = if_multiline
+# ## do..while
+# ij_java_do_while_brace_force = if_multiline
+# ij_java_while_on_new_line = false
+# ## switch
+# ij_java_indent_case_from_switch = true
+# ij_java_case_statement_on_separate_line = true
+# ## try..with resource
+# ij_java_resource_list_wrap = normal
+# ij_java_align_multiline_resources = true
+# ij_java_resource_list_new_line_after_left_paren = true
+# ij_java_resource_list_right_paren_on_new_line = true
+# ## 二元表达式
+# ij_java_binary_operation_wrap = off
+# ij_java_align_multiline_binary_operation = true
+# ij_java_binary_operation_sign_on_next_line = true
+# ij_java_align_multiline_parenthesized_expression = true
+# ij_java_parentheses_expression_new_line_after_left_paren = true
+# ij_java_parentheses_expression_right_paren_on_new_line = true
+# ## 三元运算 off 不换行, normal 过长换行,  split into lines 始终换行, on every item 过长截断
+# ij_java_ternary_operation_wrap = on_every_item
+# ij_java_align_multiline_ternary_operation = true
+# ij_java_ternary_operation_signs_on_next_line = true
+#
+#
+# ij_java_insert_override_annotation = true
+#
+# ij_java_block_comment_at_first_column = false # 块注释在第一列
+# ij_java_line_comment_at_first_column = false # 行注释在第一列
+# ij_java_line_comment_add_space_on_reformat = true #
+#
+# # Do not wrap singe-line javadoc comments.
+# ij_java_doc_do_not_wrap_if_one_line = true
+# # Don't use star imports.
+# ij_java_class_count_to_use_import_on_demand = 999
+# ij_java_names_count_to_use_import_on_demand = 999
+# # Enable JavaDoc formatting, don't put <p> tag on empty lines.
+# ij_java_doc_enable_formatting = true
+# ij_java_doc_add_p_tag_on_empty_lines = false
+# ij_java_doc_align_param_comments = true
+
+
+[*.kt]
+ij_kotlin_space_after_extend_colon = true
+ij_kotlin_space_after_type_colon = true
+ij_kotlin_space_after_comma = true
+ij_kotlin_block_comment_add_space = true
+ij_kotlin_line_comment_add_space = true
+ij_kotlin_indent_size = 4
+ij_kotlin_tab_width = 4
+ij_kotlin_keep_indents_on_empty_lines = true
+ij_kotlin_align_multiline_parameters = true
+ij_kotlin_line_break_after_multiline_when_entry = false
+ij_kotlin_keep_line_breaks = false
+ij_continuation_indent_size = 2
+# Don't use star imports.
+ij_kotlin_name_count_to_use_star_import = 999
+ij_kotlin_name_count_to_use_star_import_for_members = 999
+
+[*.xml]
+ij_xml_text_wrap = off
+ij_xml_attribute_wrap = off
+
+[*.html]
+ij_html_do_not_indent_children_of_tags = none
+ij_html_indent_size = 4
+ij_html_continuation_indent_size = 4
+ij_html_keep_indents_on_empty_lines = true
+
+[*.json]
+indent_size = 2
+tab_width = 2
+ij_continuation_indent_size = 2
+
+[{*.gant,*.groovy,*.gradle,*.gdsl,*.gy,Jenkinsfile}]
+indent_size = 2
+tab_width = 2
+ij_continuation_indent_size = 2
+
+[**/partial/*.mustache]
+insert_final_newline = false
+
+[{*.md,*.adoc}]
+indent_size = 2
+tab_width = 2
+ij_continuation_indent_size = 2
+trim_trailing_whitespace = false
+
+[{*.yml,*.yaml}]
+indent_size = 2
+tab_width = 2
+ij_yaml_keep_indents_on_empty_lines = true
+ij_continuation_indent_size = 2
