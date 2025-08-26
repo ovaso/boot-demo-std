@@ -1,0 +1,14 @@
+spring:
+  mvc:
+    # problemdetails:
+    #   enabled: false
+    log-resolved-exception: off
+  validation:
+    method:
+      adapt-constraint-violations: true
+server:
+  error:
+    include-stacktrace: never
+wares:
+  validator-fast-failed: true # 开启校验器快速失败
+

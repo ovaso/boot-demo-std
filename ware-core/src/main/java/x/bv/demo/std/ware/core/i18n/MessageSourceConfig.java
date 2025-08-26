@@ -12,22 +12,6 @@ import java.util.List;
 
 @Configuration
 public class MessageSourceConfig {
-	// @Bean
-	// public MessageSource messageSource(List<MessageSource> messageSources) {
-	//
-	// 	// 默认消息
-	// 	ReloadableResourceBundleMessageSource defaultSource = new ReloadableResourceBundleMessageSource();
-	// 	defaultSource.setBasename("classpath:ware_message");
-	// 	defaultSource.setDefaultEncoding("UTF-8");
-	//
-	// 	for (MessageSource messageSource : messageSources) {
-	// 		if (messageSource instanceof HierarchicalMessageSource hms) {
-	// 			hms.setParentMessageSource(defaultSource);
-	// 		}
-	// 	}
-	//
-	// 	return defaultSource;
-	// }
 
 	/**
 	 * 扫描 messages 为前缀路径下的所有消息模板(ResourceBundle)
@@ -39,13 +23,13 @@ public class MessageSourceConfig {
 
 		List<MessageSource> sources = new ArrayList<>();
 
-		// 1. 默认消息
+		// 默认消息
 		ReloadableResourceBundleMessageSource defaultSource = new ReloadableResourceBundleMessageSource();
-		defaultSource.setBasename("classpath:default_messages");
+		defaultSource.setBasename("classpath:ware_message");
 		defaultSource.setDefaultEncoding("UTF-8");
 		sources.add(defaultSource);
 
-		// 2. 扫描模块资源 bundle
+		// 扫描模块资源 bundle
 		PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
 		Resource[] resources = resolver.getResources("classpath*:messages/*.properties");
 
