@@ -17,6 +17,7 @@ public class AsyncConfig {
 	private static final Logger log = LoggerFactory.getLogger(AsyncConfig.class);
 
 	public AsyncConfig() {
+
 		log.info("外部配置类扫描, 开启异步配置");
 	}
 
@@ -24,6 +25,7 @@ public class AsyncConfig {
 	@Configuration
 	public static class EnableAsyncConfig {
 		private static final Logger log = LoggerFactory.getLogger(EnableAsyncConfig.class);
+
 		public EnableAsyncConfig() {
 
 			log.info("开启异步配置");

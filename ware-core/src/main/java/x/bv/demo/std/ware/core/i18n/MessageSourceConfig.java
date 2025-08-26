@@ -15,6 +15,7 @@ public class MessageSourceConfig {
 
 	/**
 	 * 扫描 messages 为前缀路径下的所有消息模板(ResourceBundle)
+	 *
 	 * @return 合并后的 CompositeMessageSource
 	 * @throws Exception 异常
 	 */

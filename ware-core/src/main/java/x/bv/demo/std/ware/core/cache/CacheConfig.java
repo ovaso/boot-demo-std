@@ -23,8 +23,9 @@ public class CacheConfig {
 
 	@EnableCaching
 	@Configuration
-	public static class EnableCache{
+	public static class EnableCache {
 		private static final Logger logger = LoggerFactory.getLogger(EnableCache.class);
+
 		public EnableCache() {
 
 			logger.info("内部配置类扫描注册开启缓存配置");

@@ -15,6 +15,7 @@ public class ValidatorConfig {
 
 	@Bean
 	public ValidationConfigurationCustomizer validationConfigurationCustomizer(WareConfigurationProperties properties) {
+
 		log.info("配置 ValidationConfigurationCustomizer. 开启 fail_fast");
 		return (configuration -> configuration.addProperty("hibernate.validator.fail_fast", properties.getValidatorFastFailed().toString()));
 	}

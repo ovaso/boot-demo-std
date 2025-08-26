@@ -5,50 +5,61 @@ import jakarta.servlet.ServletInputStream;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletRequestWrapper;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 public class CachedHttpServletRequestWrapper extends HttpServletRequestWrapper {
-    private final byte[] cachedBody;
+	private final byte[] cachedBody;
 
-    public CachedHttpServletRequestWrapper(HttpServletRequest request) throws IOException {
-        super(request);
-        // 将请求体缓存到字节数组
-        InputStream requestInputStream = request.getInputStream();
-        this.cachedBody = requestInputStream.readAllBytes();
-    }
+	public CachedHttpServletRequestWrapper(HttpServletRequest request) throws IOException {
 
-    @Override
-    public ServletInputStream getInputStream() {
-        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(cachedBody);
-        return new ServletInputStream() {
-            @Override
-            public int read() throws IOException {
-                return byteArrayInputStream.read();
-            }
+		super(request);
+		// 将请求体缓存到字节数组
+		InputStream requestInputStream = request.getInputStream();
+		this.cachedBody = requestInputStream.readAllBytes();
+	}
 
-            @Override
-            public boolean isFinished() {
-                return byteArrayInputStream.available() == 0;
-            }
+	@Override
+	public ServletInputStream getInputStream() {
 
-            @Override
-            public boolean isReady() {
-                return true;
-            }
+		ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(cachedBody);
+		return new ServletInputStream() {
+			@Override
+			public int read() throws IOException {
 
-            @Override
-            public void setReadListener(ReadListener listener) {
-                // not needed for simple sync read
-            }
-        };
-    }
+				return byteArrayInputStream.read();
+			}
 
-    @Override
-    public BufferedReader getReader() throws IOException {
-        return new BufferedReader(new InputStreamReader(getInputStream()));
-    }
+			@Override
+			public boolean isFinished() {
 
-    public byte[] getCachedBody() {
-        return cachedBody;
-    }
+				return byteArrayInputStream.available() == 0;
+			}
+
+			@Override
+			public boolean isReady() {
+
+				return true;
+			}
+
+			@Override
+			public void setReadListener(ReadListener listener) {
+				// not needed for simple sync read
+			}
+		};
+	}
+
+	@Override
+	public BufferedReader getReader() throws IOException {
+
+		return new BufferedReader(new InputStreamReader(getInputStream()));
+	}
+
+	public byte[] getCachedBody() {
+
+		return cachedBody;
+	}
 }

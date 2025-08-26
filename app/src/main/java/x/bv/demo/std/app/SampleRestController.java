@@ -1,6 +1,5 @@
 package x.bv.demo.std.app;
 
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Pattern;
 import lombok.extern.slf4j.Slf4j;

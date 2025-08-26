@@ -1,6 +1,5 @@
 package x.bv.demo.std.ware;
 
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
 import x.bv.demo.std.ware.core.WareConfiguration;
 
