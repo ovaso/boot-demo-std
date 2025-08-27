@@ -2,7 +2,7 @@ spring:
   mvc:
     problemdetails:
       enabled: true
-    log-resolved-exception: true
+    log-resolved-exception: false
   web:
     locale: zh # 默认为中文
 server:

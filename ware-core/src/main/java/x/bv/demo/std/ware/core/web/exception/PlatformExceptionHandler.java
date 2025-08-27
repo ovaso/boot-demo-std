@@ -156,23 +156,23 @@ public class PlatformExceptionHandler extends ResponseEntityExceptionHandler {
 		@NonNull WebRequest request) {
 
 		// 进行内容转换
-		final String acceptHeader = Optional.ofNullable(request.getHeader(HttpHeaders.ACCEPT))
-			.orElse(MediaType.APPLICATION_PROBLEM_JSON_VALUE);
-		List<MediaType> mediaTypes = MediaType.parseMediaTypes(acceptHeader);
+		// final String acceptHeader = Optional.ofNullable(request.getHeader(HttpHeaders.ACCEPT))
+		// 	.orElse(MediaType.APPLICATION_PROBLEM_JSON_VALUE);
+		// List<MediaType> mediaTypes = MediaType.parseMediaTypes(acceptHeader);
 		// 按质量参数排序
-		MimeTypeUtils.sortBySpecificity(mediaTypes);
+		// MimeTypeUtils.sortBySpecificity(mediaTypes);
 		// 取第一个
-		if (mediaTypes.getFirst().removeQualityValue().equals(MediaType.APPLICATION_JSON)) {
-			// 使用 RestResult
-			if (body == null) {
-				final HttpStatus resolve = Optional.ofNullable(HttpStatus.resolve(statusCode.value()))
-					.orElse(HttpStatus.INTERNAL_SERVER_ERROR);
-				body = new RestResult<>(resolve.getReasonPhrase(), resolve.value());
-			}
-			if (body instanceof ProblemDetail problemDetail) {
-				body = new RestResult<>(problemDetail.getDetail(), problemDetail.getStatus());
-			}
-		}
+		// if (mediaTypes.getFirst().removeQualityValue().equals(MediaType.APPLICATION_JSON)) {
+		// 	// 使用 RestResult
+		// 	if (body == null) {
+		// 		final HttpStatus resolve = Optional.ofNullable(HttpStatus.resolve(statusCode.value()))
+		// 			.orElse(HttpStatus.INTERNAL_SERVER_ERROR);
+		// 		body = new RestResult<>(resolve.getReasonPhrase(), resolve.value());
+		// 	}
+		// 	if (body instanceof ProblemDetail problemDetail) {
+		// 		body = new RestResult<>(problemDetail.getDetail(), problemDetail.getStatus());
+		// 	}
+		// }
 		return new ResponseEntity<>(body, headers, statusCode);
 	}
 
