@@ -30,12 +30,12 @@ public class MessageSourceConfig {
 		List<ReloadableResourceBundleMessageSource> sources = new ArrayList<>();
 
 		ReloadableResourceBundleMessageSource defaultSource = new ReloadableResourceBundleMessageSource();
-		defaultSource.setBasename("classpath*:ware_message");
+		defaultSource.setBasename("classpath:ware_message");
 		defaultSource.setDefaultEncoding("UTF-8");
 		sources.add(defaultSource);
 
 		PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-		Resource[] resources = resolver.getResources("classpath:messages/*.properties");
+		Resource[] resources = resolver.getResources("classpath*:messages/*.properties");
 		final Set<String> supportedLocales = Arrays.stream(Locale.getAvailableLocales())
 			.map(Locale::toString)
 			.collect(Collectors.toUnmodifiableSet());

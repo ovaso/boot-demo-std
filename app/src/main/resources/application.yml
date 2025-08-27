@@ -1,14 +1,12 @@
 spring:
   mvc:
-    # problemdetails:
-    #   enabled: false
-    log-resolved-exception: off
-  validation:
-    method:
-      adapt-constraint-violations: true
+    problemdetails:
+      enabled: true
+    log-resolved-exception: true
+  web:
+    locale: zh # 默认为中文
 server:
   error:
     include-stacktrace: never
 wares:
   validator-fast-failed: true # 开启校验器快速失败
-
