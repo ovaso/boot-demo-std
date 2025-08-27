@@ -2,6 +2,7 @@ package x.bv.demo.std.app;
 
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Pattern;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.validation.annotation.Validated;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RestController
 @RequestMapping("/rest")
+@AllArgsConstructor
 class SampleRestController {
 
 	@GetMapping("/hello_world")
