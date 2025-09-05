@@ -10,12 +10,20 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.validation.beanvalidation.MethodValidationPostProcessor;
 import x.bv.demo.std.ware.core.WareConfigurationProperties;
 
+/**
+ * 校验器相关配置
+ */
 @Configuration
 @ConditionalOnClass(Validator.class)
 public class ValidatorConfig {
 
 	private static final Logger log = LoggerFactory.getLogger(ValidatorConfig.class);
 
+	/**
+	 * 配置全局校验器自定义配置
+	 * @param properties 配置属性
+	 * @return 校验器自定义配置
+	 */
 	@Bean
 	public ValidationConfigurationCustomizer validationConfigurationCustomizer(WareConfigurationProperties properties) {
 
@@ -26,7 +34,7 @@ public class ValidatorConfig {
 	/**
 	 * 配置使用 MethodValidationException 替代 ConstraintViolation 来解国际化问题
 	 *
-	 * @return
+	 * @return 方法校验处理器
 	 */
 	@Bean
 	public static MethodValidationPostProcessor validationPostProcessor() {

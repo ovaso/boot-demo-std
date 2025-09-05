@@ -20,6 +20,9 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/**
+ * 消息/国际化配置
+ */
 @Slf4j
 @Configuration
 public class MessageSourceConfig {
@@ -40,6 +43,9 @@ public class MessageSourceConfig {
 			.map(Locale::toString)
 			.collect(Collectors.toUnmodifiableSet());
 
+		if (resources.length<=0) {
+			return new CompositeMessageSource(sources);
+		}
 		Map<String, Collection<String>> bucketSeparatedMessages = new HashMap<>();
 		for (Resource resource : resources) {
 			String resourcePath = resource.getURI().toString();

@@ -5,30 +5,22 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.lang.NonNull;
 
 import java.util.List;
 
+/**
+ * 缓存相关配置
+ */
+@EnableCaching
 @ConditionalOnClass(CacheManager.class)
 public class CacheConfig {
 	private static final Logger logger = LoggerFactory.getLogger(CacheConfig.class);
 
 	private final List<CacheConfigProvider> providers;
 
-	public CacheConfig(List<CacheConfigProvider> providers) {
-
-		logger.info("外部配置类被扫描注册");
+	public CacheConfig(@NonNull List<CacheConfigProvider> providers) {
 		this.providers = providers;
-	}
-
-	@EnableCaching
-	@Configuration
-	public static class EnableCache {
-		private static final Logger logger = LoggerFactory.getLogger(EnableCache.class);
-
-		public EnableCache() {
-
-			logger.info("内部配置类扫描注册开启缓存配置");
-		}
+		logger.info("共配置 {} 个缓存", providers.size());
 	}
 }

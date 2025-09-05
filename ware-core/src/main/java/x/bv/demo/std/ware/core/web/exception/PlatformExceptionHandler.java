@@ -4,17 +4,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSourceResolvable;
 import org.springframework.context.i18n.LocaleContextHolder;
-import org.springframework.core.DefaultParameterNameDiscoverer;
 import org.springframework.core.MethodParameter;
-import org.springframework.core.ParameterNameDiscoverer;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
-import org.springframework.http.MediaType;
 import org.springframework.http.ProblemDetail;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
-import org.springframework.util.MimeTypeUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.method.ParameterValidationResult;
@@ -28,7 +24,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.method.annotation.HandlerMethodValidationException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
-import x.bv.demo.std.ware.common.RestResult;
 import x.bv.demo.std.ware.exception.HttpRestException;
 import x.bv.demo.std.ware.exception.PlatformException;
 
@@ -38,15 +33,22 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
 
+/**
+ * 全局异常捕获
+ * <br/>
+ * <ol>
+ *     <li>针对参数校验做修改</li>
+ *     <li>添加平台异常捕获</li>
+ * </ol>
+ */
 @ControllerAdvice
 public class PlatformExceptionHandler extends ResponseEntityExceptionHandler {
-	private static final ParameterNameDiscoverer nameDiscoverer = new DefaultParameterNameDiscoverer();
 	private static final Logger log = LoggerFactory.getLogger(PlatformExceptionHandler.class);
+	private static final String VIOLATION_PROP = "violations";
 
 	@Override
 	protected ResponseEntity<Object> handleHandlerMethodValidationException(
@@ -58,7 +60,7 @@ public class PlatformExceptionHandler extends ResponseEntityExceptionHandler {
 		ProblemDetail problemDetail = ex.updateAndGetBody(getMessageSource(), LocaleContextHolder.getLocale());
 		SoftReference<Map<String, String>> violations = new SoftReference<>(new HashMap<>());
 		Map<String, String> violationsMap = violations.get();
-		problemDetail.setProperty("violations", violationsMap);
+		problemDetail.setProperty(VIOLATION_PROP, violationsMap);
 		// 可在下方对 problemDetail 进行定制输出
 		for (ParameterValidationResult valueResult : ex.getValueResults()) {
 			MethodParameter methodParameter = valueResult.getMethodParameter();
@@ -177,7 +179,7 @@ public class PlatformExceptionHandler extends ResponseEntityExceptionHandler {
 	}
 
 	/**
-	 * 假如是控制器内HTTP相关参数, 则提取对HTTP参数名(Header, param, path.etc) <br>
+	 * 假如是控制器内HTTP相关参数, 则提取对HTTP参数名(header, param, path.etc) <br>
 	 * 否则返回实际参数名 <br>
 	 * 如果编译时未添加 <code>-parameter</code> 选项 <br>
 	 * 或者 maven 编译插件未开启 <code>parameter</code> 选项, 则返回null

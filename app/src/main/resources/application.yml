@@ -8,5 +8,8 @@ spring:
 server:
   error:
     include-stacktrace: never
+  port: 80
 wares:
   validator-fast-failed: true # 开启校验器快速失败
+  async:
+    enable: false

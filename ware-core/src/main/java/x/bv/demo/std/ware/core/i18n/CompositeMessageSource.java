@@ -25,6 +25,8 @@ import java.util.Properties;
 import java.util.Set;
 
 /**
+ * 聚合信息源
+ * <br />
  * 组合各个模块下的消息模板, 使用 message 作为路径前缀
  */
 public final class CompositeMessageSource
